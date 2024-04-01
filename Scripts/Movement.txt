@@ -1,0 +1,26 @@
+
+using UnityEngine;
+
+
+public class PlayerMovement : MonoBehaviour
+{
+    // Input an audio source for game background music.
+    [SerializeField] private AudioSource _backgroundSong;
+    // Variables needed for the player to move.
+    private float speed = 7; 
+    
+    void Update()
+    {
+        float h_direct = Input.getAxis("Horizontal");
+        float v_direct = Input.getAxis("Vertical");
+
+    Vector3 moveDir = new Vector3(h_direct, v_direct, 0f);
+
+    moveDir.Normalized();
+
+    transform.position += moveDir *  speed * Time.deltaTime;
+
+ }
+
+}
+
